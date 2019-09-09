@@ -6,7 +6,7 @@ import ru.id61890868.logger.TimeLogger;
 import ru.id61890868.view.MyTimer;
 
 
-public class Main {
+class Main {
 
 
     public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class Main {
         main.init();
     }
 
-    void init() {
+    private void init() {
         final MyTimer timer = new MyTimer();
         final TimeLogger logger = new TimeLogger();
         final ClockMechanism mechanism = new ClockMechanism(timer::setTime);
@@ -27,8 +27,8 @@ public class Main {
                 },
                 e -> mechanism.pauseTimer(),
                 e -> {
-                    mechanism.stopTimer();
                     logger.log("End(total: " + mechanism.getTime() + ") -> " + timer.getLogText());
+                    mechanism.stopTimer();
                     timer.setLogText("");
                 }
         );

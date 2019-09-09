@@ -9,7 +9,7 @@ import javax.swing.*;
 public class ClockMechanism {
 
         private boolean active = false;
-        private Timer timer;
+        private final Timer timer;
         private Time time;
         private final DoIt<String> setTime;
         private java.util.Date tikStart;
